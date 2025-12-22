@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>点开看看</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f5f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* 公共 */
+    .center {
+      text-align: center;
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: 18px;
+      border-radius: 999px;
+      border: none;
+      background: #0071e3;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #005bb5;
+    }
+
+    /* 页面切换 */
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    /* 猪 */
+    .pig {
+      position: relative;
+      font-size: 120px;
+      animation: fly 3s ease-in forwards;
+    }
+
+    .name {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      font-weight: bold;
+      color: #000;
+    }
+
+    @keyframes fly {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-400px) scale(0.6);
+        opacity: 0;
+      }
+    }
+
+    .message {
+      font-size: 28px;
+      font-weight: bold;
+      opacity: 0;
+      margin-top: 40px;
+      animation: showText 1s ease forwards;
+      animation-delay: 3s;
+    }
+
+    @keyframes showText {
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 第一页 -->
+  <div id="page1" class="page active center">
+    <button onclick="openPage()">点开看看</button>
+  </div>
+
+  <!-- 第二页 -->
+  <div id="page2" class="page center">
+    <div class="pig">
+      🐷
+      <div class="name">刘世勋</div>
+    </div>
+    <div class="message">刘世勋是猪丸</div>
+  </div>
+
+  <script>
+    function openPage() {
+      document.getElementById("page1").classList.remove("active");
+      document.getElementById("page2").classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
 
